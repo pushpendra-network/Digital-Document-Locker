@@ -18,3 +18,4 @@ buildlog.txt
 document.txt
 *.log
 *.tmp
+.env

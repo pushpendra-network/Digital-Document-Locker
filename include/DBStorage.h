@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include <cstdlib>
+#include <stdexcept>
 
 #include <mongocxx/client.hpp>
 #include <mongocxx/instance.hpp>
@@ -23,15 +25,23 @@ class DBStorage : public Persistence
 {
 private:
     mongocxx::instance instance{};
+    mongocxx::client client;
 
-    mongocxx::client client{
-        mongocxx::uri{
-            "mongodb+srv://push2005st_db_user:6bVpyU1Dq1VaENUy@cluster0.4psf4sm.mongodb.net/TextEditorDB?retryWrites=true&w=majority&appName=Cluster0"
+    static string getMongoUri()
+    {
+        const char* mongoUri = std::getenv("MONGO_URI");
+
+        if (!mongoUri)
+        {
+            throw runtime_error("MONGO_URI environment variable not set.");
         }
-    };
+
+        return string(mongoUri);
+    }
 
 public:
     DBStorage()
+        : client(mongocxx::uri{getMongoUri()})
     {
         cout << "MongoDB Storage Initialized" << endl;
     }

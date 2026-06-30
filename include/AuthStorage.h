@@ -3,9 +3,10 @@
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <stdexcept>
 
 #include <mongocxx/client.hpp>
-#include <mongocxx/instance.hpp>
 #include <mongocxx/uri.hpp>
 
 #include <bsoncxx/json.hpp>
@@ -19,15 +20,24 @@ class AuthStorage
 {
 private:
 
+    mongocxx::client client;
 
-    mongocxx::client client{
-        mongocxx::uri{
-            "mongodb+srv://push2005st_db_user:6bVpyU1Dq1VaENUy@cluster0.4psf4sm.mongodb.net/TextEditorDB?retryWrites=true&w=majority&appName=Cluster0"
+    static string getMongoUri()
+    {
+        const char* mongoUri = std::getenv("MONGO_URI");
+
+        if (!mongoUri)
+        {
+            throw runtime_error("MONGO_URI environment variable not set.");
         }
-    };
+
+        return string(mongoUri);
+    }
 
 public:
+
     AuthStorage()
+        : client(mongocxx::uri{getMongoUri()})
     {
         cout << "Auth Storage Initialized" << endl;
     }
@@ -39,11 +49,12 @@ public:
             auto db = client["TextEditorDB"];
             auto collection = db["users"];
 
-            auto existingUser = collection.find_one(
-                bsoncxx::builder::stream::document{}
+            auto existingUser =
+                collection.find_one(
+                    bsoncxx::builder::stream::document{}
                     << "email" << user.getEmail()
                     << bsoncxx::builder::stream::finalize
-            );
+                );
 
             if (existingUser)
             {
@@ -51,38 +62,41 @@ public:
                 return false;
             }
 
-            auto doc =
+            auto document =
                 bsoncxx::builder::stream::document{}
                 << "name" << user.getName()
                 << "email" << user.getEmail()
                 << "password" << user.getPassword()
                 << bsoncxx::builder::stream::finalize;
 
-            collection.insert_one(doc.view());
+            collection.insert_one(document.view());
 
             cout << "User registered successfully." << endl;
+
             return true;
         }
-        catch (const std::exception& e)
+        catch (const exception& e)
         {
             cerr << "Register Error: " << e.what() << endl;
             return false;
         }
     }
 
-    bool loginUser(const string& email, const string& password)
+    bool loginUser(const string& email,
+                   const string& password)
     {
         try
         {
             auto db = client["TextEditorDB"];
             auto collection = db["users"];
 
-            auto result = collection.find_one(
-                bsoncxx::builder::stream::document{}
+            auto result =
+                collection.find_one(
+                    bsoncxx::builder::stream::document{}
                     << "email" << email
                     << "password" << password
                     << bsoncxx::builder::stream::finalize
-            );
+                );
 
             if (result)
             {
@@ -91,9 +105,10 @@ public:
             }
 
             cout << "Invalid email or password." << endl;
+
             return false;
         }
-        catch (const std::exception& e)
+        catch (const exception& e)
         {
             cerr << "Login Error: " << e.what() << endl;
             return false;

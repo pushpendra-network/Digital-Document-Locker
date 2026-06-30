@@ -2,6 +2,7 @@
 #undef DELETE
 #endif
 #include <cstdlib>
+
 #include "include/AuthStorage.h"
 #include "include/json.hpp"
 #include <crow.h>
@@ -17,7 +18,7 @@ int main()
     // =========================
     // CREATE APP
     // =========================
-
+       
     crow::App<crow::CORSHandler> app;
 
     auto& cors = app.get_middleware<crow::CORSHandler>();
@@ -238,15 +239,15 @@ int main()
     });
        int port = 18080;
 
-        if (const char* envPort = std::getenv("PORT"))
-        {
-            port = std::stoi(envPort);
-        }
+    if (const char* envPort = std::getenv("PORT"))
+    {
+        port = std::stoi(envPort);
+    }
 
-        app.port(port)
-            .bindaddr("0.0.0.0")
-            .multithreaded()
-            .run();
+    app.port(port)
+        .bindaddr("0.0.0.0")
+        .multithreaded()
+        .run();
 
     return 0;
 }
