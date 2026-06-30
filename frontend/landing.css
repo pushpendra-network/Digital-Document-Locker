@@ -1,0 +1,666 @@
+/*==================================================
+    DIGITAL DOCUMENT LOCKER
+    LANDING PAGE
+==================================================*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+    135deg,
+    #050816,
+    #081327,
+    #0d1d39);
+
+    position:relative;
+
+}
+
+/*==========================
+    Animated Background
+==========================*/
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    width:650px;
+
+    height:650px;
+
+    top:-220px;
+
+    left:-180px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(circle,
+
+    rgba(56,189,248,.30),
+
+    transparent 70%);
+
+    filter:blur(80px);
+
+    animation:blueMove 18s ease-in-out infinite alternate;
+
+    z-index:-2;
+
+}
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    width:600px;
+
+    height:600px;
+
+    right:-220px;
+
+    bottom:-220px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(circle,
+
+    rgba(124,58,237,.28),
+
+    transparent 70%);
+
+    filter:blur(80px);
+
+    animation:purpleMove 20s ease-in-out infinite alternate;
+
+    z-index:-2;
+
+}
+
+@keyframes blueMove{
+
+0%{
+
+transform:translate(0,0);
+
+}
+
+50%{
+
+transform:translate(100px,60px);
+
+}
+
+100%{
+
+transform:translate(20px,170px);
+
+}
+
+}
+
+@keyframes purpleMove{
+
+0%{
+
+transform:translate(0,0);
+
+}
+
+50%{
+
+transform:translate(-120px,-80px);
+
+}
+
+100%{
+
+transform:translate(-30px,-170px);
+
+}
+
+}
+
+/*==========================
+        Container
+==========================*/
+
+.landing-page{
+
+    width:min(1400px,92%);
+
+    margin:auto;
+
+    min-height:100vh;
+
+}
+
+/*==========================
+        Navbar
+==========================*/
+
+.navbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:30px 0;
+
+}
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.brand-logo{
+
+    width:72px;
+
+    height:72px;
+
+    border-radius:22px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #38bdf8,
+    #2563eb,
+    #7c3aed);
+
+    font-size:34px;
+
+    box-shadow:
+
+    0 20px 40px rgba(56,189,248,.25);
+
+}
+
+.brand h2{
+
+    font-size:28px;
+
+    font-weight:800;
+
+}
+
+.nav-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.nav-link{
+
+    text-decoration:none;
+
+    color:#dbeafe;
+
+    font-weight:600;
+
+}
+
+.nav-btn{
+
+    text-decoration:none;
+
+    padding:14px 28px;
+
+    border-radius:50px;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #38bdf8,
+    #7c3aed);
+
+    color:white;
+
+    font-weight:700;
+
+    transition:.35s;
+
+}
+
+.nav-btn:hover{
+
+    transform:translateY(-4px);
+
+}
+
+/*==========================
+        Hero
+==========================*/
+
+.hero{
+
+    display:grid;
+
+    grid-template-columns:1.2fr 1fr;
+
+    align-items:center;
+
+    gap:70px;
+
+    padding:60px 0;
+
+}
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px 22px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    color:#7dd3fc;
+
+    margin-bottom:25px;
+
+}
+
+.hero h1{
+
+    font-size:64px;
+
+    line-height:1.15;
+
+    font-weight:800;
+
+}
+
+.hero h1 span{
+
+    display:block;
+
+    margin-top:8px;
+
+    color:#38bdf8;
+
+}
+
+.hero p{
+
+    margin:30px 0;
+
+    max-width:620px;
+
+    color:#cbd5e1;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}
+
+/*==========================
+        Buttons
+==========================*/
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+.primary-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:18px 34px;
+
+    border-radius:60px;
+
+    text-decoration:none;
+
+    color:white;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #38bdf8,
+    #2563eb);
+
+    font-weight:700;
+
+    transition:.35s;
+
+}
+
+.primary-btn:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.secondary-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:18px 34px;
+
+    border-radius:60px;
+
+    text-decoration:none;
+
+    color:white;
+
+    border:2px solid rgba(255,255,255,.15);
+
+    transition:.35s;
+
+}
+
+.secondary-btn:hover{
+
+    background:rgba(255,255,255,.08);
+
+}
+
+/*==========================
+        Hero Card
+==========================*/
+
+.hero-visual{
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.locker-card{
+
+    width:360px;
+
+    padding:40px;
+
+    border-radius:32px;
+
+    background:
+
+    rgba(255,255,255,.06);
+
+    backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+
+    0 30px 70px rgba(0,0,0,.30);
+
+    text-align:center;
+
+}
+
+.locker-icon{
+
+    width:90px;
+
+    height:90px;
+
+    margin:auto;
+
+    border-radius:24px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:42px;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #38bdf8,
+    #7c3aed);
+
+}
+
+.locker-card h3{
+
+    margin-top:25px;
+
+    font-size:28px;
+
+}
+
+.locker-card p{
+
+    color:#7dd3fc;
+
+    margin:10px 0 25px;
+
+}
+
+.secure-line{
+
+    height:6px;
+
+    border-radius:20px;
+
+    background:
+
+    linear-gradient(
+    90deg,
+    #38bdf8,
+    #7c3aed);
+
+    margin-bottom:25px;
+
+}
+
+.mini-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:10px 0;
+
+}
+
+/*==========================
+        Features
+==========================*/
+
+.features{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    margin:70px 0;
+
+}
+
+.feature-card{
+
+    padding:35px;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(20px);
+
+    transition:.35s;
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.feature-card i{
+
+    font-size:42px;
+
+    color:#38bdf8;
+
+    margin-bottom:25px;
+
+}
+
+.feature-card h3{
+
+    margin-bottom:15px;
+
+    font-size:24px;
+
+}
+
+.feature-card p{
+
+    color:#cbd5e1;
+
+    line-height:1.8;
+
+}
+
+/*==========================
+        Responsive
+==========================*/
+
+@media(max-width:1000px){
+
+.hero{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.hero-buttons{
+
+justify-content:center;
+
+}
+
+.features{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.navbar{
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+.brand h2{
+
+font-size:22px;
+
+}
+
+.hero h1{
+
+font-size:40px;
+
+}
+
+.hero-buttons{
+
+flex-direction:column;
+
+}
+
+.primary-btn,
+
+.secondary-btn{
+
+width:100%;
+
+justify-content:center;
+
+}
+
+.locker-card{
+
+width:100%;
+
+}
+
+}
