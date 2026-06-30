@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
     unzip \
     tar \
     pkg-config \
+    ca-certificates \
     libssl-dev \
     libsasl2-dev \
     && rm -rf /var/lib/apt/lists/*
@@ -19,7 +20,7 @@ COPY . .
 
 RUN git clone https://github.com/microsoft/vcpkg.git /vcpkg \
     && /vcpkg/bootstrap-vcpkg.sh \
-    && /vcpkg/vcpkg install mongo-cxx-driver crow nlohmann-json
+    && /vcpkg/vcpkg install mongo-cxx-driver crow nlohmann-json --triplet x64-linux
 
 RUN cmake -B build -S . \
     -DCMAKE_TOOLCHAIN_FILE=/vcpkg/scripts/buildsystems/vcpkg.cmake \
