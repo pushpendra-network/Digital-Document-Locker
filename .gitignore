@@ -19,3 +19,4 @@ document.txt
 *.log
 *.tmp
 .env
+external/
