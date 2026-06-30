@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Digital Document Locker</title>
+
+    <link rel="stylesheet" href="auth.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<main class="auth-page">
+
+    <section class="auth-card auth-split-card">
+
+        <div class="left-content">
+
+            <div class="auth-logo">
+                <i class="fa-solid fa-file-shield"></i>
+            </div>
+
+            <h1 class="project-title">Digital Document Locker</h1>
+
+            <p class="project-tagline">Secure • Store • Retrieve</p>
+
+            <div class="welcome-card">
+                <h3>Welcome!</h3>
+
+                <p>
+                    Access your secure document workspace to manage, update,
+                    and retrieve important documents using a unique Document ID.
+                </p>
+            </div>
+
+            <div class="login-info">
+
+                <div class="info-item">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span>Manage Important Documents</span>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>Secure Authentication</span>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-database"></i>
+                    <span>MongoDB Atlas Storage</span>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Retrieve by Document ID</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="right-content">
+
+            <h1>Welcome Back</h1>
+
+            <p class="subtitle">
+                Login to access your Digital Document Locker.
+            </p>
+
+            <form onsubmit="return false;">
+
+                <div class="input-group">
+                    <label>Email Address</label>
+
+                    <div class="input-box">
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Password</label>
+
+                    <div class="input-box">
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required>
+                    </div>
+                </div>
+
+                <button
+                    type="button"
+                    class="auth-btn"
+                    onclick="loginUser()">
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    Login
+                </button>
+
+            </form>
+
+            <p class="switch-text">
+                Don't have an account?
+                <a href="register.html">Create Account</a>
+            </p>
+
+            <a href="landing.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back to Home
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script src="auth.js"></script>
+
+</body>
+</html>
