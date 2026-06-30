@@ -1,6 +1,10 @@
-
 const BASE_URL = "https://digital-document-locker.onrender.com";
+
+// ==========================
+// REGISTER
+// ==========================
 async function registerUser() {
+
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
@@ -17,7 +21,8 @@ async function registerUser() {
     }
 
     try {
-        const response = await fetch(AUTH_BASE_URL + "/register", {
+
+        const response = await fetch(BASE_URL + "/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -37,12 +42,18 @@ async function registerUser() {
         } else {
             alert(message);
         }
+
     } catch (error) {
+        console.error(error);
         alert("Cannot connect to server.");
     }
 }
 
+// ==========================
+// LOGIN
+// ==========================
 async function loginUser() {
+
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
 
@@ -52,7 +63,8 @@ async function loginUser() {
     }
 
     try {
-        const response = await fetch(AUTH_BASE_URL + "/login", {
+
+        const response = await fetch(BASE_URL + "/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -67,11 +79,13 @@ async function loginUser() {
 
         if (response.ok) {
             alert(message);
-            window.location.href = "index.html";
+            window.location.href = "dashboard.html";
         } else {
             alert(message);
         }
+
     } catch (error) {
+        console.error(error);
         alert("Cannot connect to server.");
     }
 }
