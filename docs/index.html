@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Document Locker</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="landing.css">
 
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -14,299 +14,117 @@
 
 <body>
 
-<div class="dashboard">
+    <main class="landing-page">
 
-    <aside class="sidebar">
+        <nav class="navbar">
 
-        <div class="brand">
+            <div class="brand">
 
-            <div class="logo">
-                <i class="fa-solid fa-file-shield"></i>
-            </div>
-
-            <div class="brand-text">
-                <h1>DIGITAL</h1>
-                <h2>DOCUMENT LOCKER</h2>
-                <p>Secure Cloud Document Management</p>
-            </div>
-
-        </div>
-
-        <div class="sidebar-image">
-            <div class="sidebar-illustration">
-                <i class="fa-solid fa-folder-open folder-icon"></i>
-                <i class="fa-solid fa-shield-halved shield-icon"></i>
-                <i class="fa-solid fa-file-lines file-icon"></i>
-            </div>
-        </div>
-
-        <nav class="menu">
-
-            <button type="button" class="menu-item active">
-                <i class="fa-solid fa-house"></i>
-                Dashboard
-            </button>
-
-            <button type="button" class="menu-item">
-                <i class="fa-solid fa-file-lines"></i>
-                Documents
-            </button>
-
-            <button type="button" class="menu-item">
-                <i class="fa-solid fa-cloud"></i>
-                Cloud Storage
-            </button>
-
-            <button type="button" class="menu-item">
-                <i class="fa-solid fa-shield-halved"></i>
-                Security
-            </button>
-
-            <button type="button" class="menu-item">
-                <i class="fa-solid fa-gear"></i>
-                Settings
-            </button>
-
-        </nav>
-
-    </aside>
-
-    <main class="workspace">
-
-        <header class="top-header">
-
-            <div class="header-left">
-
-                <div class="header-logo">
+                <div class="brand-logo">
                     <i class="fa-solid fa-file-shield"></i>
                 </div>
 
-                <div>
-                    <h1>Digital Document Locker</h1>
-                    <p>Secure • Store • Retrieve • Update • Delete Documents</p>
+                <h2>Digital Document Locker</h2>
+
+            </div>
+
+            <div class="nav-actions">
+
+                <a href="login.html" class="nav-link">Login</a>
+
+                <a href="register.html" class="nav-btn">Get Started</a>
+
+            </div>
+
+        </nav>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="badge">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    Secure Cloud Document System
+                </span>
+
+                <h1>
+                    Store Important Documents
+                    <span>Retrieve Them Instantly</span>
+                </h1>
+
+                <p>
+                    Digital Document Locker helps you securely save, update,
+                    delete, and retrieve documents using a unique Document ID.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="register.html" class="primary-btn">
+                        Create Account
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                    <a href="login.html" class="secondary-btn">
+                        Login
+                    </a>
+
                 </div>
 
             </div>
 
-            <div class="online-status">
-                <span class="dot"></span>
-                System Online
-            </div>
+            <div class="hero-visual">
 
-        </header>
+                <div class="locker-card">
 
-        <section class="content-card">
+                    <div class="locker-icon">
+                        <i class="fa-solid fa-file-shield"></i>
+                    </div>
 
-            <div class="card-title">
-                <i class="fa-solid fa-file-shield"></i>
-                <h2>Document Information</h2>
-            </div>
+                    <h3>Document ID</h3>
 
-            <div class="form-grid">
+                    <p>DDL-2026-001</p>
 
-                <div class="form-group">
-                    <label>Document ID</label>
-                    <input type="text" id="id" placeholder="Enter unique document ID">
+                    <div class="secure-line"></div>
+
+                    <div class="mini-row">
+                        <span>MongoDB Atlas</span>
+                        <b>Connected</b>
+                    </div>
+
+                    <div class="mini-row">
+                        <span>REST API</span>
+                        <b>Online</b>
+                    </div>
+
                 </div>
 
-                <div class="form-group">
-                    <label>Document Title</label>
-                    <input type="text" id="title" placeholder="Enter document title">
-                </div>
-
-                <div class="form-group">
-                    <label>Created Date</label>
-                    <input type="text" id="createdAt" placeholder="DD/MM/YYYY">
-                </div>
-
-                <div class="form-group">
-                    <label>Last Updated</label>
-                    <input type="text" id="updatedAt" placeholder="DD/MM/YYYY">
-                </div>
-
-            </div>
-
-            <div class="editor-section">
-                <label>Document Content</label>
-                <textarea id="content" placeholder="Start typing your secure document here..."></textarea>
-            </div>
-
-          <div class="button-grid">
-
-            <button class="btn save-btn" onclick="saveDocument()">
-                <i class="fa-solid fa-floppy-disk"></i>
-                Save
-            </button>
-
-            <button class="btn load-btn" onclick="loadDocument()">
-                <i class="fa-solid fa-folder-open"></i>
-                Load
-            </button>
-
-            <button class="btn update-btn" onclick="updateDocument()">
-                <i class="fa-solid fa-pen"></i>
-                Update
-            </button>
-
-            <button class="btn delete-btn" onclick="deleteDocument()">
-                <i class="fa-solid fa-trash"></i>
-                Delete
-            </button>
-
-        </div>
-
-        </section>
-
-        <section class="preview-card">
-
-            <div class="card-title">
-                <i class="fa-solid fa-eye"></i>
-                <h2>Live Preview</h2>
-            </div>
-
-            <div id="preview">
-                Your document preview will appear here...
             </div>
 
         </section>
 
-        <footer id="status" class="status-bar">
-            <i class="fa-solid fa-circle-check"></i>
-            Ready...
-        </footer>
+        <section class="features">
+
+            <div class="feature-card">
+                <i class="fa-solid fa-fingerprint"></i>
+                <h3>Unique ID Access</h3>
+                <p>Retrieve every document instantly using its unique ID.</p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fa-solid fa-database"></i>
+                <h3>Cloud Database</h3>
+                <p>Documents are stored using MongoDB Atlas cloud storage.</p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fa-solid fa-lock"></i>
+                <h3>Secure Locker</h3>
+                <p>Designed for safe document storage and retrieval.</p>
+            </div>
+
+        </section>
 
     </main>
-
-    <aside class="info-panel">
-
-        <div class="info-card upload-card">
-
-            <div class="card-header">
-                <i class="fa-solid fa-cloud-arrow-up"></i>
-                <h3>Upload Center</h3>
-            </div>
-
-            <div class="upload-area">
-
-                <div class="upload-icon">
-                    <i class="fa-solid fa-cloud-arrow-up"></i>
-                </div>
-
-                <h4>Upload Documents</h4>
-                <p>Drag & Drop files here</p>
-
-                <button type="button" id="uploadButton" class="upload-btn">
-                    Browse Files
-                </button>
-
-            </div>
-
-        </div>
-
-        <div class="info-card">
-
-            <div class="card-header">
-                <i class="fa-solid fa-server"></i>
-                <h3>Server Status</h3>
-            </div>
-
-            <div class="status-item">
-                <span>REST API</span>
-                <span id="serverStatus" class="badge online">ONLINE</span>
-            </div>
-
-            <div class="status-item">
-                <span>Crow Server</span>
-                <span id="crowStatus" class="badge online">RUNNING</span>
-            </div>
-
-            <div class="status-item">
-                <span>MongoDB Atlas</span>
-                <span id="databaseStatus" class="badge online">CONNECTED</span>
-            </div>
-
-        </div>
-
-        <div class="info-card">
-
-            <div class="card-header">
-                <i class="fa-solid fa-shield-halved"></i>
-                <h3>Locker Security</h3>
-            </div>
-
-            <div class="security-list">
-
-                <div class="security-row">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>Secure Document Storage</span>
-                </div>
-
-                <div class="security-row">
-                    <i class="fa-solid fa-fingerprint"></i>
-                    <span>Unique Document ID</span>
-                </div>
-
-                <div class="security-row">
-                    <i class="fa-solid fa-database"></i>
-                    <span>MongoDB Cloud Database</span>
-                </div>
-
-                <div class="security-row">
-                    <i class="fa-solid fa-circle-check"></i>
-                    <span>Fast Document Retrieval</span>
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="info-card">
-
-            <div class="card-header">
-                <i class="fa-solid fa-database"></i>
-                <h3>Storage</h3>
-            </div>
-
-            <div class="storage-box">
-
-                <div class="storage-circle">
-                    <span>Cloud</span>
-                </div>
-
-                <div class="storage-info">
-                    <h4>MongoDB Atlas</h4>
-                    <small>Document Repository</small>
-                </div>
-
-            </div>
-
-            <div class="progress">
-                <div class="progress-fill"></div>
-            </div>
-
-        </div>
-
-        <div class="info-card tips-card">
-
-            <div class="card-header">
-                <i class="fa-solid fa-lightbulb"></i>
-                <h3>Quick Tips</h3>
-            </div>
-
-            <ul>
-                <li>Use a unique Document ID.</li>
-                <li>Click Save before loading later.</li>
-                <li>Use Update after editing content.</li>
-                <li>Retrieve documents anytime by ID.</li>
-            </ul>
-
-        </div>
-
-    </aside>
-
-</div>
-
-<script src="script.js"></script>
 
 </body>
 </html>
