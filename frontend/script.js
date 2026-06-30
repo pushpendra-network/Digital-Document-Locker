@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:18080";
+const BASE_URL = "https://digital-document-locker.onrender.com";
 
 const contentBox = document.getElementById("content");
 const previewBox = document.getElementById("preview");
